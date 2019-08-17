@@ -538,5 +538,26 @@ public class Person {
 		this.eId = eId;
 	}
 
+	@Override
+	public String toString() {
+		return "Person [name=" + name + ", maritalState=" + maritalState + ", createdDate=" + createdDate
+				+ ", lastModified=" + lastModified + ", eId=" + eId + ", church=" + church + ", birthDate=" + birthDate
+				+ ", placeOfBirth=" + placeOfBirth + ", baptismDate=" + baptismDate + ", placeOfBaptism="
+				+ placeOfBaptism + ", edQualification=" + edQualification + ", address=" + address + ", jobTitle="
+				+ jobTitle + ", jobAddress=" + jobAddress + ", militaryStatus=" + militaryStatus + ", relatedChurch="
+				+ relatedChurch + ", confessoPriest=" + confessoPriest + ", confessorChurch=" + confessorChurch
+				+ ", confessionRate=" + confessionRate + ", eucharistRate=" + eucharistRate + ", foreignCountryName="
+				+ foreignCountryName + ", foreignCountryDate=" + foreignCountryDate + ", familyLinks=" + familyLinks
+				+ ", engagedBefore=" + engagedBefore + ", marriedOutside=" + marriedOutside + ", marriedInside="
+				+ marriedInside + ", churchMarriage=" + churchMarriage + ", marriagePlace=" + marriagePlace
+				+ ", marriagePriest=" + marriagePriest + ", civilMarriage=" + civilMarriage + ", civilMarriageDate="
+				+ civilMarriageDate + ", maritalStatus=" + maritalStatus + ", widowhoodDate=" + widowhoodDate
+				+ ", marriedBeforeWidowhood=" + marriedBeforeWidowhood + ", marriageBeforeWidowhoodInfo="
+				+ marriageBeforeWidowhoodInfo + ", divorced=" + divorced + ", court=" + court + ", caseNum=" + caseNum
+				+ ", caseDate=" + caseDate + ", marriageApprovalSource=" + marriageApprovalSource
+				+ ", marriageApprovalDate=" + marriageApprovalDate + ", childsNum=" + childsNum + ", childAge="
+				+ childAge + ", childsBiptesm=" + childsBiptesm + ", familyRelation=" + familyRelation + "]";
+	}
+
 	
 }
