@@ -103,7 +103,7 @@ public class Person {
     private String familyLinks;
     
     @Column(name="engaged_before")
-    private int engagedBefore;
+    private Integer engagedBefore;
     
     @Column(name="married_outside")
     private String marriedOutside;
@@ -113,7 +113,7 @@ public class Person {
     private String marriedInside;
     
     @Column(name="church_marriage")
-    private int churchMarriage;
+    private Integer churchMarriage;
     
     @Column(name="marriage_place")
     private String marriagePlace;
@@ -136,21 +136,342 @@ public class Person {
     private Date widowhoodDate;
     
     @Column(name="married_before_widowhood")
-    private int marriedBeforeWidowhood;
+    private Integer marriedBeforeWidowhood;
     
     @Column(name="m_b_w_info")
     private String marriageBeforeWidowhoodInfo;
     
     @Column(name="divorced")
-    private int divorced;
+    private Integer divorced;
     
     @Column(name="court")
     private String court;
     
-    @Column(name="case_num")
-    private int caseNum;
+    @Column(name="case_num", nullable = false)
+    private Integer caseNum;
     
-    @Temporal(TemporalType.TIMESTAMP)
+    
+    public String getChurch() {
+		return church;
+	}
+
+	public void setChurch(String church) {
+		this.church = church;
+	}
+
+	public Date getBirthDate() {
+		return birthDate;
+	}
+
+	public void setBirthDate(Date birthDate) {
+		this.birthDate = birthDate;
+	}
+
+	public String getPlaceOfBirth() {
+		return placeOfBirth;
+	}
+
+	public void setPlaceOfBirth(String placeOfBirth) {
+		this.placeOfBirth = placeOfBirth;
+	}
+
+	public Date getBaptismDate() {
+		return baptismDate;
+	}
+
+	public void setBaptismDate(Date baptismDate) {
+		this.baptismDate = baptismDate;
+	}
+
+	public String getPlaceOfBaptism() {
+		return placeOfBaptism;
+	}
+
+	public void setPlaceOfBaptism(String placeOfBaptism) {
+		this.placeOfBaptism = placeOfBaptism;
+	}
+
+	public String getEdQualification() {
+		return edQualification;
+	}
+
+	public void setEdQualification(String edQualification) {
+		this.edQualification = edQualification;
+	}
+
+	public String getAddress() {
+		return address;
+	}
+
+	public void setAddress(String address) {
+		this.address = address;
+	}
+
+	public String getJobTitle() {
+		return jobTitle;
+	}
+
+	public void setJobTitle(String jobTitle) {
+		this.jobTitle = jobTitle;
+	}
+
+	public String getJobAddress() {
+		return jobAddress;
+	}
+
+	public void setJobAddress(String jobAddress) {
+		this.jobAddress = jobAddress;
+	}
+
+	public String getMilitaryStatus() {
+		return militaryStatus;
+	}
+
+	public void setMilitaryStatus(String militaryStatus) {
+		this.militaryStatus = militaryStatus;
+	}
+
+	public String getRelatedChurch() {
+		return relatedChurch;
+	}
+
+	public void setRelatedChurch(String relatedChurch) {
+		this.relatedChurch = relatedChurch;
+	}
+
+	public String getConfessoPriest() {
+		return confessoPriest;
+	}
+
+	public void setConfessoPriest(String confessoPriest) {
+		this.confessoPriest = confessoPriest;
+	}
+
+	public String getConfessorChurch() {
+		return confessorChurch;
+	}
+
+	public void setConfessorChurch(String confessorChurch) {
+		this.confessorChurch = confessorChurch;
+	}
+
+	public String getConfessionRate() {
+		return confessionRate;
+	}
+
+	public void setConfessionRate(String confessionRate) {
+		this.confessionRate = confessionRate;
+	}
+
+	public String getEucharistRate() {
+		return eucharistRate;
+	}
+
+	public void setEucharistRate(String eucharistRate) {
+		this.eucharistRate = eucharistRate;
+	}
+
+	public String getForeignCountryName() {
+		return foreignCountryName;
+	}
+
+	public void setForeignCountryName(String foreignCountryName) {
+		this.foreignCountryName = foreignCountryName;
+	}
+
+	public Date getForeignCountryDate() {
+		return foreignCountryDate;
+	}
+
+	public void setForeignCountryDate(Date foreignCountryDate) {
+		this.foreignCountryDate = foreignCountryDate;
+	}
+
+	public String getFamilyLinks() {
+		return familyLinks;
+	}
+
+	public void setFamilyLinks(String familyLinks) {
+		this.familyLinks = familyLinks;
+	}
+
+	public Integer getEngagedBefore() {
+		return engagedBefore;
+	}
+
+	public void setEngagedBefore(Integer engagedBefore) {
+		this.engagedBefore = engagedBefore;
+	}
+
+	public String getMarriedOutside() {
+		return marriedOutside;
+	}
+
+	public void setMarriedOutside(String marriedOutside) {
+		this.marriedOutside = marriedOutside;
+	}
+
+	public String getMarriedInside() {
+		return marriedInside;
+	}
+
+	public void setMarriedInside(String marriedInside) {
+		this.marriedInside = marriedInside;
+	}
+
+	public Integer getChurchMarriage() {
+		return churchMarriage;
+	}
+
+	public void setChurchMarriage(Integer churchMarriage) {
+		this.churchMarriage = churchMarriage;
+	}
+
+	public String getMarriagePlace() {
+		return marriagePlace;
+	}
+
+	public void setMarriagePlace(String marriagePlace) {
+		this.marriagePlace = marriagePlace;
+	}
+
+	public String getMarriagePriest() {
+		return marriagePriest;
+	}
+
+	public void setMarriagePriest(String marriagePriest) {
+		this.marriagePriest = marriagePriest;
+	}
+
+	public String getCivilMarriage() {
+		return civilMarriage;
+	}
+
+	public void setCivilMarriage(String civilMarriage) {
+		this.civilMarriage = civilMarriage;
+	}
+
+	public Date getCivilMarriageDate() {
+		return civilMarriageDate;
+	}
+
+	public void setCivilMarriageDate(Date civilMarriageDate) {
+		this.civilMarriageDate = civilMarriageDate;
+	}
+
+	public String getMaritalStatus() {
+		return maritalStatus;
+	}
+
+	public void setMaritalStatus(String maritalStatus) {
+		this.maritalStatus = maritalStatus;
+	}
+
+	public Date getWidowhoodDate() {
+		return widowhoodDate;
+	}
+
+	public void setWidowhoodDate(Date widowhoodDate) {
+		this.widowhoodDate = widowhoodDate;
+	}
+
+	public Integer getMarriedBeforeWidowhood() {
+		return marriedBeforeWidowhood;
+	}
+
+	public void setMarriedBeforeWidowhood(Integer marriedBeforeWidowhood) {
+		this.marriedBeforeWidowhood = marriedBeforeWidowhood;
+	}
+
+	public String getMarriageBeforeWidowhoodInfo() {
+		return marriageBeforeWidowhoodInfo;
+	}
+
+	public void setMarriageBeforeWidowhoodInfo(String marriageBeforeWidowhoodInfo) {
+		this.marriageBeforeWidowhoodInfo = marriageBeforeWidowhoodInfo;
+	}
+
+	public Integer getDivorced() {
+		return divorced;
+	}
+
+	public void setDivorced(Integer divorced) {
+		this.divorced = divorced;
+	}
+
+	public String getCourt() {
+		return court;
+	}
+
+	public void setCourt(String court) {
+		this.court = court;
+	}
+
+	public Integer getCaseNum() {
+		return caseNum;
+	}
+
+	public void setCaseNum(Integer caseNum) {
+		this.caseNum = caseNum;
+	}
+
+	public Date getCaseDate() {
+		return caseDate;
+	}
+
+	public void setCaseDate(Date caseDate) {
+		this.caseDate = caseDate;
+	}
+
+	public String getMarriageApprovalSource() {
+		return marriageApprovalSource;
+	}
+
+	public void setMarriageApprovalSource(String marriageApprovalSource) {
+		this.marriageApprovalSource = marriageApprovalSource;
+	}
+
+	public Date getMarriageApprovalDate() {
+		return marriageApprovalDate;
+	}
+
+	public void setMarriageApprovalDate(Date marriageApprovalDate) {
+		this.marriageApprovalDate = marriageApprovalDate;
+	}
+
+	public Integer getChildsNum() {
+		return childsNum;
+	}
+
+	public void setChildsNum(Integer childsNum) {
+		this.childsNum = childsNum;
+	}
+
+	public String getChildAge() {
+		return childAge;
+	}
+
+	public void setChildAge(String childAge) {
+		this.childAge = childAge;
+	}
+
+	public String getChildsBiptesm() {
+		return childsBiptesm;
+	}
+
+	public void setChildsBiptesm(String childsBiptesm) {
+		this.childsBiptesm = childsBiptesm;
+	}
+
+	public String getFamilyRelation() {
+		return familyRelation;
+	}
+
+	public void setFamilyRelation(String familyRelation) {
+		this.familyRelation = familyRelation;
+	}
+
+	@Temporal(TemporalType.TIMESTAMP)
     @Column(name="case_date")
     private Date caseDate;
     
@@ -162,7 +483,7 @@ public class Person {
     private Date marriageApprovalDate;
     
     @Column(name="childs_num")
-    private int childsNum;
+    private Integer childsNum;
     
     @Column(name="childs_age")
     private String childAge;

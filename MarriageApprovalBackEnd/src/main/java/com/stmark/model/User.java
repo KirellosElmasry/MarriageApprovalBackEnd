@@ -12,7 +12,7 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 @Entity
 @EntityListeners(AuditingEntityListener.class)
-@Table(name = "person")
+@Table(name = "user")
 public class User {
 
 	@Id
