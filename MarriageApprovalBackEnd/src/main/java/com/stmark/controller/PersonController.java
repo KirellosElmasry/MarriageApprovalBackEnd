@@ -16,9 +16,8 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.stmark.exception.ResourceNotFoundException;
 import com.stmark.model.Person;
-import com.stmark.repository.PersonRepository;
+import com.stmark.service.PersonService;
 
 @CrossOrigin(origins = "http://localhost:4200")
 @RestController
@@ -26,51 +25,40 @@ import com.stmark.repository.PersonRepository;
 public class PersonController {
 
 	@Autowired
-	PersonRepository personRepository;
+	PersonService personService;
 
 	// Get All persons
 	@GetMapping("/allPersons")
 	public List<Person> getAllPersons() {
-		return personRepository.findAll();
+		return personService.getAllPersons();
 	}
 
 	// Create a new person
 	@PostMapping("/newPerson")
-	public Person createNewPerson(@Valid @RequestBody Person person) {
-		return personRepository.save(person);
+	public Person create(@Valid @RequestBody Person person) {
+		System.out.println(person.toString());
+		return personService.create(person);
 	}
 
 	// Get a Single person
 	@GetMapping("/person/{eId}")
-	public Person getPersonByEId(@PathVariable(value = "eId") Long eId) {
+	public Person getPersonByEId(@PathVariable(value = "eId") String eId) {
 		// it will return a 404 Not Found error to the client if EId doesn't exist
-		return personRepository.findById(eId)
-				.orElseThrow(() -> new ResourceNotFoundException("Person", "eId", eId));
-
+		return personService.getPersonByEid(eId);
 	}
-	
+
 	// Update a Person
 	@PutMapping("/updatePerson/{eId}")
-	public Person updatePerson(@PathVariable(value = "eId") Long eId,
-	                                        @Valid @RequestBody Person personDetails) {
+	public Person updatePerson(@PathVariable(value = "eId") String eId, @Valid @RequestBody Person personDetails) {
 
-		Person person= personRepository.findById(eId)
-	            .orElseThrow(() -> new ResourceNotFoundException("Person", "eId", eId));
-
-		person.setMaritalState(personDetails.getMaritalState());
-		
-	    Person updatedPerson = personRepository.save(person);
-	    return updatedPerson;
+		return personService.update(eId, personDetails);
 	}
 
 	// Delete a Note
 	@DeleteMapping("/deletePerson/{eId}")
-	public ResponseEntity<?> deletePerson(@PathVariable(value = "eId") Long eId) {
-		Person person = personRepository.findById(eId)
-	            .orElseThrow(() -> new ResourceNotFoundException("Person", "eId", eId));
+	public ResponseEntity<?> deletePerson(@PathVariable(value = "eId") String eId) {
+		personService.delete(eId);
 
-		personRepository.delete(person);
-
-	    return ResponseEntity.ok().build();
+		return ResponseEntity.ok().build();
 	}
 }

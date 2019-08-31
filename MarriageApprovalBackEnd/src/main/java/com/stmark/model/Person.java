@@ -2,156 +2,134 @@ package com.stmark.model;
 
 import java.util.Date;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.EntityListeners;
-import javax.persistence.Id;
-import javax.persistence.Table;
-import javax.persistence.Temporal;
-import javax.persistence.TemporalType;
-
 import org.springframework.data.annotation.CreatedDate;
+import org.springframework.data.annotation.Id;
 import org.springframework.data.annotation.LastModifiedDate;
-import org.springframework.data.jpa.domain.support.AuditingEntityListener;
+import org.springframework.data.mongodb.core.mapping.Document;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
-@Entity
-@EntityListeners(AuditingEntityListener.class)
-@JsonIgnoreProperties(value = {"created_date","last_modified"}, 
-        allowGetters = true)
-@Table(name = "person")
+@JsonIgnoreProperties(value = { "created_date", "last_modified" }, allowGetters = true)
+@Document
 public class Person {
 
 	@JsonIgnoreProperties
-	@Column
 	private String name;
-	
+
 	@JsonIgnoreProperties
-	@Column(name = "marital_state")
 	private String maritalState;
-	
-    @Column(updatable = false, name = "created_date")
-    @Temporal(TemporalType.TIMESTAMP)
-    @CreatedDate
+
+	@CreatedDate
 	private Date createdDate;
-    
-    @Column(nullable = false, name ="last_modified" )
-    @Temporal(TemporalType.TIMESTAMP)
-    @LastModifiedDate
-    private Date lastModified;
-    
-    @Id
-    @Column(name="E_Id")
-	private Long eId;
-    
-    @Column
-    private String church;
-    
-    @Temporal(TemporalType.TIMESTAMP)
-    @Column(name= "birth_date")
-    private Date birthDate;
-    
-    @Column(name="place_of_birth")
-    private String placeOfBirth;
-    
-    @Temporal(TemporalType.TIMESTAMP)
-    @Column(name="baptism_date")
-    private Date baptismDate;
+
+	@LastModifiedDate
+	private Date lastModified;
+
+	@Id
+	private String id;
 	
-    @Column(name="place_of_baptism")
-    private String placeOfBaptism;
-    
-    @Column(name="ed_qualification")
-    private String edQualification;
-    
-    @Column(name="address")
-    private String address;
-    
-    @Column(name="job_title")
-    private String jobTitle;
-    
-    @Column(name="job_address")
-    private String jobAddress;
-    
-    @Column(name="military_status")
-    private String militaryStatus;
-    
-    @Column(name="related_church")
-    private String relatedChurch;
-    
-    @Column(name="confessor_priest")
-    private String confessoPriest;
-    
-    @Column(name="confessor_church")
-    private String confessorChurch;
-    
-    @Column(name="confession_rate")
-    private String confessionRate;
-    
-    @Column(name="eucharist_rate")
-    private String eucharistRate;
-    
-    @Column(name="foreign_country_name")
-    private String foreignCountryName;
-    
-    @Temporal(TemporalType.TIMESTAMP)
-    @Column(name="foreign_country_date")
-    private Date foreignCountryDate;
-    
-    @Column(name="family_links")
-    private String familyLinks;
-    
-    @Column(name="engaged_before")
-    private Integer engagedBefore;
-    
-    @Column(name="married_outside")
-    private String marriedOutside;
-    
-    
-    @Column(name="married_inside")
-    private String marriedInside;
-    
-    @Column(name="church_marriage")
-    private Integer churchMarriage;
-    
-    @Column(name="marriage_place")
-    private String marriagePlace;
-    
-    @Column(name="marriage_priest")
-    private String marriagePriest;
-    
-    @Column(name="civil_marriage")
-    private String civilMarriage;
-    
-    @Temporal(TemporalType.TIMESTAMP)
-    @Column(name="civil_marriage_date")
-    private Date civilMarriageDate;
-    
-    @Column(name="marital_status")
-    private String maritalStatus;
-    
-    @Temporal(TemporalType.TIMESTAMP)
-    @Column(name="widowhood_date")
-    private Date widowhoodDate;
-    
-    @Column(name="married_before_widowhood")
-    private Integer marriedBeforeWidowhood;
-    
-    @Column(name="m_b_w_info")
-    private String marriageBeforeWidowhoodInfo;
-    
-    @Column(name="divorced")
-    private Integer divorced;
-    
-    @Column(name="court")
-    private String court;
-    
-    @Column(name="case_num", nullable = false)
-    private Integer caseNum;
-    
-    
-    public String getChurch() {
+	private String eId;
+
+	private String church;
+
+	private Date birthDate;
+
+	private String placeOfBirth;
+
+	private Date baptismDate;
+
+	private String placeOfBaptism;
+
+	private String edQualification;
+
+	private String address;
+
+	private String jobTitle;
+
+	private String jobAddress;
+
+	private String militaryStatus;
+
+	private String relatedChurch;
+
+	private String confessoPriest;
+
+	private String confessorChurch;
+
+	private String confessionRate;
+
+	private String eucharistRate;
+
+	private String foreignCountryName;
+
+	private Date foreignCountryDate;
+
+	private String familyLinks;
+
+	private Integer engagedBefore;
+
+	private String marriedOutside;
+
+	private String marriedInside;
+
+	private Integer churchMarriage;
+
+	private String marriagePlace;
+
+	private String marriagePriest;
+
+	private String civilMarriage;
+
+	private Date civilMarriageDate;
+
+	private String maritalStatus;
+
+	private Date widowhoodDate;
+
+	private Integer marriedBeforeWidowhood;
+
+	private String marriageBeforeWidowhoodInfo;
+
+	private Integer divorced;
+
+	private String court;
+
+	private Integer caseNum;
+
+	private Date caseDate;
+
+	private String marriageApprovalSource;
+
+	private Date marriageApprovalDate;
+
+	private Integer childsNum;
+
+	private String childAge;
+
+	private String childsBiptesm;
+
+	private String familyRelation;
+	
+	private String referenceNumber;
+	
+	
+	public String getId() {
+		return id;
+	}
+
+	public void setId(String id) {
+		this.id = id;
+	}
+
+	public String getReferenceNumber() {
+		return referenceNumber;
+	}
+
+	public void setReferenceNumber(String referenceNumber) {
+		this.referenceNumber = referenceNumber;
+	}
+
+	public String getChurch() {
 		return church;
 	}
 
@@ -471,31 +449,8 @@ public class Person {
 		this.familyRelation = familyRelation;
 	}
 
-	@Temporal(TemporalType.TIMESTAMP)
-    @Column(name="case_date")
-    private Date caseDate;
-    
-    @Column(name="marriage_approval_source")
-    private String marriageApprovalSource;
-    
-    @Temporal(TemporalType.TIMESTAMP)
-    @Column(name="marriage_approval_date")
-    private Date marriageApprovalDate;
-    
-    @Column(name="childs_num")
-    private Integer childsNum;
-    
-    @Column(name="childs_age")
-    private String childAge;
-    
-    @Column(name="childs_biptesm")
-    private String childsBiptesm;
-    
-    @Column(name="family_relation")
-    private String familyRelation;
-    
-    public Person() {
-		
+	public Person() {
+
 	}
 
 	public String getName() {
@@ -530,11 +485,11 @@ public class Person {
 		this.lastModified = lastModified;
 	}
 
-	public Long geteId() {
+	public String getEId() {
 		return eId;
 	}
 
-	public void seteId(Long eId) {
+	public void setEId(String eId) {
 		this.eId = eId;
 	}
 
@@ -559,5 +514,4 @@ public class Person {
 				+ childAge + ", childsBiptesm=" + childsBiptesm + ", familyRelation=" + familyRelation + "]";
 	}
 
-	
 }

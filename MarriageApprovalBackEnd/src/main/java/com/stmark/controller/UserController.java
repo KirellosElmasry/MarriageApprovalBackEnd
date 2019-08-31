@@ -1,5 +1,7 @@
 package com.stmark.controller;
 
+import java.util.List;
+
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -10,9 +12,8 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.stmark.exception.ResourceNotFoundException;
 import com.stmark.model.User;
-import com.stmark.repository.UserRepository;
+import com.stmark.service.UserService;
 
 @CrossOrigin(origins = "http://localhost:4200")
 @RestController
@@ -20,28 +21,27 @@ import com.stmark.repository.UserRepository;
 public class UserController {
 
 	@Autowired
-	UserRepository userRepository;
+	UserService userService;
 
 	@PostMapping("/login")
 	public String doLogin(@Valid @RequestBody User user) {
 
 		System.out.println("in login " + user.getUserName() + "  " + user.getPassword());
 
-		User dbUser = userRepository.findById(user.getUserName())
-				.orElseThrow(() -> new ResourceNotFoundException("User", "userName", user.getUserName()));
-
+		User dbUser = userService.getByUserName(user.getUserName());
+				
 		if (dbUser != null && dbUser.getPassword().equals(user.getPassword())) {
 			System.out.println(" login Successfully");
-			return "{'message':'Login Successfully'}";
+			return "{\"message\":\"Login Successfully\",\"role\":\""+dbUser.getRole()+"\"}";
 		} else {
 			System.out.println(" User Not Found");
-			return "{'message':'User Not Found'}";
+			return "{\"message\":\"Login failed\"}";
 		}
 	}
 
-	// Get All persons
-	@GetMapping("/getUser")
-	public String getAllPersons() {
-		return "return $$$";
+	// Get All users
+	@GetMapping("/getAllUsers")
+	public List<User> getAllUsers() {
+		return userService.getAllUsers();
 	}
 }
