@@ -2,116 +2,60 @@ package com.stmark.model;
 
 import java.util.Date;
 
-import org.springframework.data.annotation.CreatedDate;
 import org.springframework.data.annotation.Id;
-import org.springframework.data.annotation.LastModifiedDate;
 import org.springframework.data.mongodb.core.mapping.Document;
 
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-
-@JsonIgnoreProperties(value = { "created_date", "last_modified" }, allowGetters = true)
 @Document
 public class Person {
-
-	@JsonIgnoreProperties
-	private String name;
-
-	@JsonIgnoreProperties
-	private String maritalState;
-
-	@CreatedDate
-	private Date createdDate;
-
-	@LastModifiedDate
-	private Date lastModified;
-
 	@Id
 	private String id;
-	
-	private String eId;
-
+	private String name;
+	private String maritalState;
+	private Date createdDate;
+	private Date lastModified;
+	private String emirateId;
 	private String church;
-
 	private Date birthDate;
-
 	private String placeOfBirth;
-
 	private Date baptismDate;
-
 	private String placeOfBaptism;
-
 	private String edQualification;
-
 	private String address;
-
 	private String jobTitle;
-
 	private String jobAddress;
-
 	private String militaryStatus;
-
 	private String relatedChurch;
-
 	private String confessoPriest;
-
 	private String confessorChurch;
-
 	private String confessionRate;
-
 	private String eucharistRate;
-
 	private String foreignCountryName;
-
 	private Date foreignCountryDate;
-
 	private String familyLinks;
-
-	private Integer engagedBefore;
-
+	private String engagedBefore;
 	private String marriedOutside;
-
 	private String marriedInside;
-
-	private Integer churchMarriage;
-
+	private String churchMarriage;
 	private String marriagePlace;
-
 	private String marriagePriest;
-
 	private String civilMarriage;
-
 	private Date civilMarriageDate;
-
 	private String maritalStatus;
-
 	private Date widowhoodDate;
-
-	private Integer marriedBeforeWidowhood;
-
+	private String marriedBeforeWidowhood;
 	private String marriageBeforeWidowhoodInfo;
-
-	private Integer divorced;
-
+	private String divorced;
 	private String court;
-
-	private Integer caseNum;
-
+	private String caseNum;
 	private Date caseDate;
-
 	private String marriageApprovalSource;
-
 	private Date marriageApprovalDate;
-
-	private Integer childsNum;
-
+	private String childsNum;
 	private String childAge;
-
 	private String childsBiptesm;
-
 	private String familyRelation;
-	
 	private String referenceNumber;
-	
+	private String hasSecondClearance;
 	
 	public String getId() {
 		return id;
@@ -273,11 +217,11 @@ public class Person {
 		this.familyLinks = familyLinks;
 	}
 
-	public Integer getEngagedBefore() {
+	public String getEngagedBefore() {
 		return engagedBefore;
 	}
 
-	public void setEngagedBefore(Integer engagedBefore) {
+	public void setEngagedBefore(String engagedBefore) {
 		this.engagedBefore = engagedBefore;
 	}
 
@@ -297,11 +241,11 @@ public class Person {
 		this.marriedInside = marriedInside;
 	}
 
-	public Integer getChurchMarriage() {
+	public String getChurchMarriage() {
 		return churchMarriage;
 	}
 
-	public void setChurchMarriage(Integer churchMarriage) {
+	public void setChurchMarriage(String churchMarriage) {
 		this.churchMarriage = churchMarriage;
 	}
 
@@ -353,11 +297,11 @@ public class Person {
 		this.widowhoodDate = widowhoodDate;
 	}
 
-	public Integer getMarriedBeforeWidowhood() {
+	public String getMarriedBeforeWidowhood() {
 		return marriedBeforeWidowhood;
 	}
 
-	public void setMarriedBeforeWidowhood(Integer marriedBeforeWidowhood) {
+	public void setMarriedBeforeWidowhood(String marriedBeforeWidowhood) {
 		this.marriedBeforeWidowhood = marriedBeforeWidowhood;
 	}
 
@@ -369,11 +313,11 @@ public class Person {
 		this.marriageBeforeWidowhoodInfo = marriageBeforeWidowhoodInfo;
 	}
 
-	public Integer getDivorced() {
+	public String getDivorced() {
 		return divorced;
 	}
 
-	public void setDivorced(Integer divorced) {
+	public void setDivorced(String divorced) {
 		this.divorced = divorced;
 	}
 
@@ -385,11 +329,11 @@ public class Person {
 		this.court = court;
 	}
 
-	public Integer getCaseNum() {
+	public String getCaseNum() {
 		return caseNum;
 	}
 
-	public void setCaseNum(Integer caseNum) {
+	public void setCaseNum(String caseNum) {
 		this.caseNum = caseNum;
 	}
 
@@ -417,11 +361,11 @@ public class Person {
 		this.marriageApprovalDate = marriageApprovalDate;
 	}
 
-	public Integer getChildsNum() {
+	public String getChildsNum() {
 		return childsNum;
 	}
 
-	public void setChildsNum(Integer childsNum) {
+	public void setChildsNum(String childsNum) {
 		this.childsNum = childsNum;
 	}
 
@@ -485,19 +429,29 @@ public class Person {
 		this.lastModified = lastModified;
 	}
 
-	public String getEId() {
-		return eId;
+
+
+	public String getEmirateId() {
+		return emirateId;
 	}
 
-	public void setEId(String eId) {
-		this.eId = eId;
+	public void setEmirateId(String emirateId) {
+		this.emirateId = emirateId;
+	}
+
+	public String getHasSecondClearance() {
+		return hasSecondClearance;
+	}
+
+	public void setHasSecondClearance(String hasSecondClearance) {
+		this.hasSecondClearance = hasSecondClearance;
 	}
 
 	@Override
 	public String toString() {
-		return "Person [name=" + name + ", maritalState=" + maritalState + ", createdDate=" + createdDate
-				+ ", lastModified=" + lastModified + ", eId=" + eId + ", church=" + church + ", birthDate=" + birthDate
-				+ ", placeOfBirth=" + placeOfBirth + ", baptismDate=" + baptismDate + ", placeOfBaptism="
+		return "Person [id=" + id + ", name=" + name + ", maritalState=" + maritalState + ", createdDate=" + createdDate
+				+ ", lastModified=" + lastModified + ", emirateId=" + emirateId + ", church=" + church + ", birthDate="
+				+ birthDate + ", placeOfBirth=" + placeOfBirth + ", baptismDate=" + baptismDate + ", placeOfBaptism="
 				+ placeOfBaptism + ", edQualification=" + edQualification + ", address=" + address + ", jobTitle="
 				+ jobTitle + ", jobAddress=" + jobAddress + ", militaryStatus=" + militaryStatus + ", relatedChurch="
 				+ relatedChurch + ", confessoPriest=" + confessoPriest + ", confessorChurch=" + confessorChurch
@@ -511,7 +465,9 @@ public class Person {
 				+ marriageBeforeWidowhoodInfo + ", divorced=" + divorced + ", court=" + court + ", caseNum=" + caseNum
 				+ ", caseDate=" + caseDate + ", marriageApprovalSource=" + marriageApprovalSource
 				+ ", marriageApprovalDate=" + marriageApprovalDate + ", childsNum=" + childsNum + ", childAge="
-				+ childAge + ", childsBiptesm=" + childsBiptesm + ", familyRelation=" + familyRelation + "]";
+				+ childAge + ", childsBiptesm=" + childsBiptesm + ", familyRelation=" + familyRelation
+				+ ", referenceNumber=" + referenceNumber + ", hasSecondClearance=" + hasSecondClearance + "]";
 	}
 
+	
 }

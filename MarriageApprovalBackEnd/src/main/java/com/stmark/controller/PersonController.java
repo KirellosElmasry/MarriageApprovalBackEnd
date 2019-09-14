@@ -35,29 +35,29 @@ public class PersonController {
 
 	// Create a new person
 	@PostMapping("/newPerson")
-	public Person create(@Valid @RequestBody Person person) {
+	public Person create(@RequestBody Person person) {
 		System.out.println(person.toString());
 		return personService.create(person);
 	}
 
 	// Get a Single person
-	@GetMapping("/person/{eId}")
-	public Person getPersonByEId(@PathVariable(value = "eId") String eId) {
-		// it will return a 404 Not Found error to the client if EId doesn't exist
-		return personService.getPersonByEid(eId);
+	@GetMapping("/person/{emirateId}")
+	public Person getPersonByemirateId(@PathVariable(value = "emirateId") String emirateId) {
+		// it will return a 404 Not Found error to the client if emirateId doesn't exist
+		return personService.getPersonByemirateId(emirateId);
 	}
 
 	// Update a Person
-	@PutMapping("/updatePerson/{eId}")
-	public Person updatePerson(@PathVariable(value = "eId") String eId, @Valid @RequestBody Person personDetails) {
+	@PutMapping("/updatePerson")
+	public Person updatePerson(@RequestBody Person personDetails) {
 
-		return personService.update(eId, personDetails);
+		return personService.update(personDetails.getEmirateId(), personDetails);
 	}
 
-	// Delete a Note
-	@DeleteMapping("/deletePerson/{eId}")
-	public ResponseEntity<?> deletePerson(@PathVariable(value = "eId") String eId) {
-		personService.delete(eId);
+	// Delete a Person
+	@DeleteMapping("/deletePerson/{emirateId}")
+	public ResponseEntity<?> deletePerson(@PathVariable(value = "emirateId") String emirateId) {
+		personService.delete(emirateId);
 
 		return ResponseEntity.ok().build();
 	}

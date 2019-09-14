@@ -1,5 +1,6 @@
 package com.stmark.service;
 
+import java.util.Date;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -19,19 +20,24 @@ public class PersonService {
 	}
 
 	public Person create(Person person) {
+		person.setCreatedDate(new Date());
+		person.setLastModified(new Date());
+		
 		return personRepository.save(person);
 	}
 
-	public Person getPersonByEid(String eId) {
-		return personRepository.findByEId(eId);
+	public Person getPersonByemirateId(String emirateId) {
+		return personRepository.findByEmirateId(emirateId);
 	}
 
-	public Person update(String eId, Person person) {
-		Person p = personRepository.findByEId(eId);
+	public Person update(String emirateId, Person person) {
+		Person p = personRepository.findByEmirateId(emirateId);
 
 		if (p != null) {
-			if (p.getName() != null)
-				p.setName(person.getName());
+			if (person.getHasSecondClearance() != null) {
+				p.setLastModified(new Date());
+				p.setHasSecondClearance(person.getHasSecondClearance());
+			}
 			// must set all values in person class
 		
 			return personRepository.save(p);
@@ -39,8 +45,8 @@ public class PersonService {
 		return null;
 	}
 
-	public void delete(String eId) {
-		Person person = personRepository.findByEId(eId);
+	public void delete(String emirateId) {
+		Person person = personRepository.findByEmirateId(emirateId);
 		personRepository.delete(person);
 	}
 }

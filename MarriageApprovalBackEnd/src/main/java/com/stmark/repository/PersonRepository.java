@@ -8,5 +8,5 @@ import com.stmark.model.Person;
 @Repository
 public interface PersonRepository extends MongoRepository<Person, String>{
 
-	public Person findByEId(String eId);
+	public Person findByEmirateId(String emirateId);
 }
