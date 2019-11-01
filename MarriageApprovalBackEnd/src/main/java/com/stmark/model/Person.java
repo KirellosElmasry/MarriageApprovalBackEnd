@@ -56,6 +56,8 @@ public class Person {
 	private String familyRelation;
 	private String referenceNumber;
 	private String hasSecondClearance;
+	private String marriageType;
+	private String marriedBefore;
 	
 	public String getId() {
 		return id;
@@ -445,6 +447,23 @@ public class Person {
 
 	public void setHasSecondClearance(String hasSecondClearance) {
 		this.hasSecondClearance = hasSecondClearance;
+	}
+
+	
+	public String getMarriageType() {
+		return marriageType;
+	}
+
+	public void setMarriageType(String marriageType) {
+		this.marriageType = marriageType;
+	}
+
+	public String getMarriedBefore() {
+		return marriedBefore;
+	}
+
+	public void setMarriedBefore(String marriedBefore) {
+		this.marriedBefore = marriedBefore;
 	}
 
 	@Override
